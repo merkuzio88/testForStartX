@@ -6,13 +6,13 @@ import settings.DesktopCaps;
 import ui_activity.AuthFieldSteps;
 
 @ExtendWith(DesktopCaps.class)
-public class TestAllFieldsFillWithInvalidPassword {
+public class TestAllFieldsFillWithInvalidName {
 
     @Test
-    void testAllFieldsFillWithInvalidPassword() {
+    void testAllFieldsFillWithInvalidName() {
         new AuthFieldSteps()
                 .openAuthPage()
-                .fillAllFieldsWithInvalidPassword()
-                .checkPasswordError();
+                .fillAllFieldsWithInvalidName()
+                .checkNameError();
     }
 }

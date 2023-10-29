@@ -20,6 +20,10 @@ public class BaseSteps {
         $(userNameField).setValue("Иванов Иван Иванович");
         return this;
     }
+    public BaseSteps fillNameFieldInvalid() {
+        $(userNameField).setValue("!@#$%");
+        return this;
+    }
     public BaseSteps fillMailFieldValid() {
         $(mailField).setValue("test@gmail.com");
         return this;
