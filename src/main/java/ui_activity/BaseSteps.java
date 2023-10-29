@@ -12,6 +12,7 @@ public class BaseSteps {
     private final String passwordField = "#password";
     private final String passwordValidationField = "#passwordValidation";
     private final String validPassword = "12345678";
+    private final String invalidPassword = "12345";
     private final String checkBox = ".signUpForm__checkoboxItem";
     private final String submitButton = "#submitLogin";
 
@@ -31,8 +32,16 @@ public class BaseSteps {
         $(passwordField).setValue(validPassword);
         return this;
     }
+    public BaseSteps fillPasswordFieldInvalid() {
+        $(passwordField).setValue(invalidPassword);
+        return this;
+    }
     public BaseSteps fillPasswordValidationFieldValid() {
         $(passwordValidationField).setValue(validPassword);
+        return this;
+    }
+    public BaseSteps fillPasswordValidationFieldInvalid() {
+        $(passwordValidationField).setValue(invalidPassword);
         return this;
     }
     public BaseSteps setCheckBoxes() {

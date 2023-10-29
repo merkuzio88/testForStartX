@@ -17,7 +17,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <isHighlighter>true</isHighlighter>
         <isSelenideListener>true</isSelenideListener>
-        <isHeadless>true</isHeadless>
+        <isHeadless>false</isHeadless>
         <slf4j.version>2.0.0-alpha7</slf4j.version>
     </properties>
     <build>
