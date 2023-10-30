@@ -8,7 +8,14 @@ import org.junit.jupiter.api.Test;
 import static constants.Urls.*;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
+/**
+ * Тест проверки запроса с некорректным именем
+ * <p>
+ * * 1. Отправляем POST запрос calluserforsignup с некорректными данными в поле userName
+ * * 2. Проверяем что ответ соответствует ожидаемому
+ */
 public class TestInvalidNameRequest {
     private final String validPassword = "12345678";
     private AuthFormBody authFormBodyValid = AuthFormBody.builder()
@@ -31,7 +38,7 @@ public class TestInvalidNameRequest {
                 .log().all()
                 .statusCode(200)
                 .extract().as(CallUserForSignupModel.class);
-        assertEquals(false, callUserForSignupModel.isType());
+        assertFalse(callUserForSignupModel.isType());
         assertEquals("\"ФИО\" должен содержать только текст",
                 callUserForSignupModel.getMessage());
     }

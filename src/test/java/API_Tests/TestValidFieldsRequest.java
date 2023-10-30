@@ -8,13 +8,20 @@ import org.junit.jupiter.api.Test;
 import static constants.Urls.*;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
+/**
+ * Тест проверки запроса с валидными данными
+ * <p>
+ * * 1. Отправляем POST запрос calluserforsignup с валидными данными
+ * * 2. Проверяем что ответ соответствует ожидаемому
+ */
 public class TestValidFieldsRequest {
     private final String validPassword = "12345678";
     private AuthFormBody authFormBodyValid = AuthFormBody.builder()
             .userName("Ivanov Ivan")
             .login("test@gmail.com")
-            .phoneNumber("89991114477")
+            .phoneNumber("89991114488")
             .password(validPassword)
             .passwordValidation(validPassword)
             .build();
@@ -31,7 +38,7 @@ public class TestValidFieldsRequest {
                 .log().all()
                 .statusCode(200)
                 .extract().as(CallUserForSignupModel.class);
-        assertEquals(true, callUserForSignupModel.isType());
+        assertTrue(callUserForSignupModel.isType());
         assertEquals("Сейчас на ваш телефон поступит звонок, последние 4 цифры являются кодом",
                 callUserForSignupModel.getText());
     }

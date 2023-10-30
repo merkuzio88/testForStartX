@@ -29,7 +29,7 @@ public class BaseSteps {
         return this;
     }
     public BaseSteps fillPhoneFieldValid() {
-        $(phoneField).setValue("89991114477");
+        $(phoneField).setValue("89991114411");
         return this;
     }
     public BaseSteps fillPasswordFieldValid() {

@@ -9,12 +9,18 @@ import static constants.Urls.*;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * Тест проверки запроса с некорректным паролем
+ * <p>
+ * * 1. Отправляем POST запрос calluserforsignup с некорректными данными в поле password
+ * * 2. Проверяем что ответ соответствует ожидаемому
+ */
 public class TestInvalidPasswordRequest {
     private final String invalidPassword = "12345";
     private AuthFormBody authFormBodyValid = AuthFormBody.builder()
             .userName("Ivanov Ivan")
             .login("test@gmail.com")
-            .phoneNumber("89991114477")
+            .phoneNumber("89991114466")
             .password(invalidPassword)
             .passwordValidation(invalidPassword)
             .build();
